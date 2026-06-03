@@ -243,6 +243,16 @@ body {
     transition: transform 0.3s ease;
 }
 
+.brand-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+}
+
 .brand:hover {
     transform: perspective(1000px) translateZ(20px) scale(1.05);
 }
@@ -1659,7 +1669,26 @@ body {
 }
 
 .tag {
+    position: relative;
     background: var(--blue-soft);
+
+/* Date badge for project cards */
+.project-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(90deg, rgba(59,130,246,0.12), rgba(99,102,241,0.12));
+    color: var(--blue-dark);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 6px 18px rgba(59,130,246,0.08);
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
     color: var(--blue-medium);
     padding: 0.4rem 1rem;
     border-radius: 20px;
@@ -1812,6 +1841,7 @@ body {
     transition: all 0.4s ease;
     transform: perspective(1000px) translateZ(0);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
 }
 
 .social-icon:hover {

@@ -288,7 +288,7 @@ if (contactForm) {
         emailBody += `\nMessage:\n${encodeURIComponent(message)}`;
         
         // Create mailto link
-        const mailtoLink = `mailto:rajbuavn66@gmail.com?subject=${subject}&body=${emailBody}`;
+        const mailtoLink = `mailto:vbuvanraj@gmail.com?subject=${subject}&body=${emailBody}`;
         
         // Try to open email client
         try {
@@ -311,7 +311,7 @@ if (contactForm) {
                 }, 3000);
             }, 500);
         } catch (error) {
-            showFormError('Unable to open email client. Please send an email directly to rajbuavn66@gmail.com');
+            showFormError('Unable to open email client. Please send an email directly to vbuvanraj@gmail.com');
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Send Message';
@@ -360,6 +360,103 @@ socialIcons.forEach(icon => {
     
     icon.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Ensure mailto links reliably open the user's mail client (fallback)
+document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    const handler = (e) => {
+        if (e && typeof e.preventDefault === 'function') e.preventDefault();
+        if (e && typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+        const href = link.getAttribute('href');
+        if (!href) return;
+        // Try several ways to open the mail client to maximize compatibility
+        try {
+            // 1) Try standard navigation
+            window.location.href = href;
+        } catch (err1) {
+            try {
+                // 2) Try window.open (may be blocked by popup blockers if not user-initiated)
+                window.open(href, '_self');
+            } catch (err2) {
+                try {
+                    // 3) Try opening in a new tab/window
+                    window.open(href, '_blank');
+                } catch (err3) {
+                    try {
+                        // 4) Fallback: create a temporary iframe
+                        const iframe = document.createElement('iframe');
+                        iframe.style.display = 'none';
+                        iframe.src = href;
+                        document.body.appendChild(iframe);
+                        setTimeout(() => { iframe.remove(); }, 1500);
+                    } catch (err4) {
+                        console.warn('All mailto open attempts failed', err1, err2, err3, err4);
+                    }
+                }
+            }
+        }
+    };
+
+    link.addEventListener('click', handler, true); // use capture to run before other listeners
+    link.addEventListener('auxclick', handler, true);
+    link.addEventListener('keydown', (e) => { if (e.key === 'Enter') handler(e); });
+});
+
+// Simple toast + copy fallback for mail links
+function _showSimpleToast(text, ttl = 5000) {
+    const existing = document.querySelector('.simple-mailto-toast');
+    if (existing) existing.remove();
+    const t = document.createElement('div');
+    t.className = 'simple-mailto-toast';
+    t.style.position = 'fixed';
+    t.style.right = '20px';
+    t.style.bottom = '20px';
+    t.style.zIndex = '20000';
+    t.style.background = 'rgba(15,23,42,0.95)';
+    t.style.color = '#fff';
+    t.style.padding = '10px 14px';
+    t.style.borderRadius = '10px';
+    t.style.boxShadow = '0 8px 24px rgba(2,6,23,0.4)';
+    t.style.display = 'flex';
+    t.style.gap = '10px';
+    t.style.alignItems = 'center';
+    const span = document.createElement('span');
+    span.innerText = text;
+    t.appendChild(span);
+    const btn = document.createElement('button');
+    btn.innerText = 'Copy';
+    btn.style.background = 'transparent';
+    btn.style.color = '#60A5FA';
+    btn.style.border = '1px solid rgba(96,165,250,0.18)';
+    btn.style.padding = '6px 8px';
+    btn.style.borderRadius = '8px';
+    btn.style.cursor = 'pointer';
+    t.appendChild(btn);
+    btn.addEventListener('click', () => {
+        const email = text.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+        if (email) {
+            const e = email[0];
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(e);
+            } else {
+                const ta = document.createElement('textarea'); ta.value = e; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+            }
+            span.innerText = 'Copied to clipboard';
+            setTimeout(() => t.remove(), 1200);
+        }
+    });
+    document.body.appendChild(t);
+    setTimeout(() => { if (t.parentNode) t.remove(); }, ttl);
+}
+
+// Attach bubble-phase click handler to show fallback when mailto doesn't open
+document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        // Wait briefly; if nothing else happens, show copy fallback
+        setTimeout(() => {
+            _showSimpleToast(link.getAttribute('href') || 'vbuvanraj@gmail.com', 7000);
+        }, 900);
     });
 });
 

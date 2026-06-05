@@ -195,6 +195,48 @@ const closeModalBtn = document.getElementById('closeContactModal');
 const cancelBtn = document.getElementById('cancelContactForm');
 const contactForm = document.getElementById('contactForm');
 
+function submitToFormSubmit(payload) {
+    const iframeName = `formsubmit-frame-${Date.now()}`;
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://formsubmit.co/vbuvanraj@gmail.com';
+    form.target = iframeName;
+    form.style.display = 'none';
+
+    const fields = {
+        name: payload.name,
+        email: payload.email,
+        message: payload.message,
+        _subject: payload._subject,
+        _captcha: payload._captcha
+    };
+
+    if (payload.address) {
+        fields.address = payload.address;
+    }
+
+    Object.entries(fields).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(() => {
+        form.remove();
+        iframe.remove();
+    }, 4000);
+}
+
 // Open Modal
 if (openModalBtn) {
     openModalBtn.addEventListener('click', () => {
@@ -249,7 +291,8 @@ if (contactForm) {
         // Get form values
         const name = document.getElementById('contactName').value.trim();
         const email = document.getElementById('contactEmail').value.trim();
-        const address = document.getElementById('contactAddress').value.trim();
+        const addressField = document.getElementById('contactAddress');
+        const address = addressField ? addressField.value.trim() : '';
         const message = document.getElementById('contactMessage').value.trim();
         
         // Remove existing messages
@@ -278,40 +321,33 @@ if (contactForm) {
             submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Sending...';
         }
         
-        // Prepare email content
-        const subject = encodeURIComponent(`Contact from Portfolio: ${name}`);
-        let emailBody = `Name: ${encodeURIComponent(name)}\n`;
-        emailBody += `Email: ${encodeURIComponent(email)}\n`;
+        const payload = {
+            name,
+            email,
+            message,
+            _subject: `Contact from Portfolio: ${name}`,
+            _captcha: 'false'
+        };
+
         if (address) {
-            emailBody += `Address: ${encodeURIComponent(address)}\n`;
+            payload.address = address;
         }
-        emailBody += `\nMessage:\n${encodeURIComponent(message)}`;
-        
-        // Create mailto link
-        const mailtoLink = `mailto:vbuvanraj@gmail.com?subject=${subject}&body=${emailBody}`;
-        
-        // Try to open email client
+
         try {
-            window.location.href = mailtoLink;
-            
-            // Show success message after a short delay
+            submitToFormSubmit(payload);
+            showFormSuccess('Message submitted. If this is the first request, approve FormSubmit activation email in vbuvanraj@gmail.com, then future messages will arrive normally.');
+
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Send Message';
+            }
+
             setTimeout(() => {
-                showFormSuccess('Message sent successfully! Your email client should open shortly.');
-                
-                // Re-enable submit button
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Send Message';
-                }
-                
-                // Reset form after showing success
-                setTimeout(() => {
-                    contactForm.reset();
-                    closeModal();
-                }, 3000);
-            }, 500);
+                contactForm.reset();
+                closeModal();
+            }, 3000);
         } catch (error) {
-            showFormError('Unable to open email client. Please send an email directly to vbuvanraj@gmail.com');
+            showFormError('Submission failed. Please check internet connection and try again.');
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Send Message';

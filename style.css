@@ -1722,6 +1722,80 @@ body {
 }
 
 /* ============================================
+   OTHERS SECTION
+   ============================================ */
+
+.others-section {
+    background: linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+}
+
+.others-subtitle {
+    text-align: center;
+    color: var(--text-gray);
+    margin-top: -1rem;
+    margin-bottom: 2.25rem;
+    font-size: 1.05rem;
+}
+
+.others-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.other-link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    border-radius: 18px;
+    padding: 1.25rem 1.2rem;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    text-align: center;
+    gap: 0.65rem;
+}
+
+.other-link-card h3 {
+    margin: 0 0 0.35rem;
+    color: var(--blue-dark);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.other-link-card p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 0.94rem;
+}
+
+.other-link-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.45);
+}
+
+.other-link-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(99,102,241,0.08));
+    color: var(--blue-dark);
+    box-shadow: 0 8px 18px rgba(59,130,246,0.08);
+}
+
+.other-link-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* ============================================
    CONTACT SECTION
    ============================================ */
 
@@ -2163,6 +2237,10 @@ body {
     .education-content {
         grid-template-columns: 1fr;
     }
+
+    .others-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 768px) {
@@ -2187,6 +2265,10 @@ body {
     }
     
     .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .others-grid {
         grid-template-columns: 1fr;
     }
     

@@ -1,15 +1,41 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUVANRAJ-Profile</title>
+    <title>Buvanraj V | Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Buvanraj V - Full Stack Developer & AI/ML Developer Intern. Explore my portfolio website built with React.js, Node.js, FastAPI, and Machine Learning.">
+    <meta name="keywords" content="Buvanraj V, Portfolio, Full Stack Developer, AI ML Developer, Infosys Springboard, React, Node.js, FastAPI, Python">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://buvan-buddu.github.io/PROTOFILO-1/">
+    <meta property="og:title" content="Buvanraj V | Portfolio">
+    <meta property="og:description" content="AI/ML Developer Intern at Infosys, building scalable web applications with React.js, Node.js, and FastAPI.">
+    <meta property="og:image" content="BUVAN-PROFILE.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://buvan-buddu.github.io/PROTOFILO-1/">
+    <meta property="twitter:title" content="Buvanraj V | Portfolio">
+    <meta property="twitter:description" content="AI/ML Developer Intern at Infosys, building scalable web applications with React.js, Node.js, and FastAPI.">
+    <meta property="twitter:image" content="BUVAN-PROFILE.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 
 <body>
@@ -21,7 +47,7 @@
     <header class="site-header">
         <div class="header-inner">
             <a href="#home" class="brand">
-                <img src="icons-portfolio.png" alt="Buvanraj V" class="brand-avatar">
+                <img src="icons-portfolio.png" alt="Buvanraj V Avatar" class="brand-avatar">
                 Portfolio
             </a>
             <nav class="main-nav">
@@ -33,12 +59,29 @@
                 <a href="#projects">Projects</a>
                 <a href="#others">Others</a>
                 <a href="#contact">Contact</a>
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- HOME SECTION -->
     <section id="home" class="hero">
+        
         <div class="hero-content">
             <p class="greeting">Hello, I'm</p>
             <h1 class="name">Buvanraj V</h1>
@@ -79,7 +122,7 @@
     </section>
 
     <!-- ABOUT ME SECTION -->
-    <section id="about" class="section about-section">
+    <section id="about" class="section about-section" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-part-1">About</span> <span class="title-part-2">Me</span>
@@ -90,16 +133,7 @@
                 <div class="about-illustration">
                     <div class="illustration-card">
                         <div class="illustration-placeholder">
-                            <img src="BUVAN-PROFILE.jpeg" alt="Buvanraj V" class="profile-image">
-
-
-                            <circle cx="100" cy="80" r="50" fill="#FCD34D" />
-                            <rect x="60" y="130" width="80" height="60" rx="5" fill="#A78BFA" />
-                            <rect x="70" y="140" width="60" height="40" fill="#374151" />
-                            <circle cx="90" cy="70" r="3" fill="#1F2937" />
-                            <circle cx="110" cy="70" r="3" fill="#1F2937" />
-                            <path d="M85 85 Q100 90 115 85" stroke="#1F2937" stroke-width="2" fill="none" />
-                            </svg>
+                            <img src="BUVAN.jpeg" alt="Buvanraj V" class="profile-image">
                         </div>
                     </div>
                 </div>
@@ -129,10 +163,10 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
     </section>
 
     <!-- SKILLS SECTION -->
-    <section id="skills" class="section skills-section">
+    <section id="skills" class="section skills-section" data-aos="fade-up">
         <div class="container">
             <div class="skills-attributes">
-                <div class="attribute-card">
+                <div class="attribute-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="attribute-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -143,7 +177,7 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
                     <h4>Web Application Development</h4>
                     <p>Designing and developing modern web solutions</p>
                 </div>
-                <div class="attribute-card">
+                <div class="attribute-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="attribute-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -157,7 +191,7 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
                     <h4>React Ecosystem</h4>
                     <p>Building dynamic and interactive user experiences</p>
                 </div>
-                <div class="attribute-card">
+                <div class="attribute-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="attribute-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -169,7 +203,7 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
                     <h4>Project-Based Learning</h4>
                     <p>Applying practical knowledge through real-world projects</p>
                 </div>
-                <div class="attribute-card">
+                <div class="attribute-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="attribute-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -181,103 +215,86 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
                 </div>
             </div>
 
+            <h2 class="section-title">
+                <span class="title-part-1">My</span>
+                <span class="title-part-2">Skills</span>
+            </h2>
+            <p class="section-subtitle">Technologies and tools I work with</p>
 
-            <!-- SKILLS SECTION -->
-            <section id="skills" class="section skills-section">
-                <div class="container">
-
-                    <h2 class="section-title">
-                        <span class="title-part-1">My</span>
-                        <span class="title-part-2">Skills</span>
-                    </h2>
-                    <p class="section-subtitle">Technologies and tools I work with</p>
-
-                    <!-- SKILLS TAG CLOUD -->
-                    <div class="skills-container">
-                        <!-- FRONTEND SKILLS -->
-                        <div class="skills-category frontend">
-                            <h3 class="category-title">🌐 Frontend Development</h3>
-                            <div class="skills-tags">
-                                <span class="skill-tag">HTML5</span>
-                                <span class="skill-tag">CSS3</span>
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">React.js</span>
-                                <span class="skill-tag">Tailwind CSS</span>
-                                <span class="skill-tag">Responsive Design</span>
-                              
-                            </div>
-                        </div>
-
-                        <!-- BACKEND SKILLS -->
-                        <div class="skills-category backend">
-                            <h3 class="category-title">⚙️ Backend Development</h3>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Node.js</span>
-                                <span class="skill-tag">Express.js</span>
-                                <span class="skill-tag">FastAPI</span>
-                                <span class="skill-tag">MongoDB</span>
-                                <span class="skill-tag">REST APIs</span>
-                                <span class="skill-tag">JWT Authentication</span>
-                                <span class="skill-tag">Database Design</span>
-                            </div>
-                        </div>
-
-                        <!-- AI/ML SKILLS -->
-                        <div class="skills-category aiml">
-                            <h3 class="category-title">🤖 AI & Machine Learning</h3>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">XGBoost</span>
-                                <span class="skill-tag">PyTorch</span>
-                                <span class="skill-tag">LSTM Neural Networks</span>
-                                <span class="skill-tag">SHAP Explainability</span>
-                                <span class="skill-tag">Scikit-learn</span>
-                                <span class="skill-tag">NumPy & Pandas</span>
-                            </div>
-                        </div>
-
-                        <!-- TOOLS & PLATFORMS -->
-                        <div class="skills-category tools">
-                            <h3 class="category-title">🛠️ Tools & Platforms</h3>
-                            <div class="skills-tags">
-                                <span class="skill-tag">Vite</span>
-                                <span class="skill-tag">Recharts</span>
-                                <span class="skill-tag">Netlify</span>
-                                <span class="skill-tag">OpenWeather API</span>
-                                <span class="skill-tag">WAQI API</span>
-                                <span class="skill-tag">Gemini AI</span>
-                                <span class="skill-tag">TypeScript</span>
-                            </div>
-                        </div>
+            <!-- SKILLS TAG CLOUD -->
+            <div class="skills-container">
+                <!-- FRONTEND SKILLS -->
+                <div class="skills-category frontend" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">🌐 Frontend Development</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Responsive Design</span>
                     </div>
-
                 </div>
+
+                <!-- BACKEND SKILLS -->
+                <div class="skills-category backend" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="category-title">⚙️ Backend Development</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">JWT Authentication</span>
+                        <span class="skill-tag">Database Design</span>
+                    </div>
+                </div>
+
+                <!-- AI/ML SKILLS -->
+                <div class="skills-category aiml" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="category-title">🤖 AI & Machine Learning</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">LSTM Neural Networks</span>
+                        <span class="skill-tag">SHAP Explainability</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">NumPy & Pandas</span>
+                    </div>
+                </div>
+
+                <!-- TOOLS & PLATFORMS -->
+                <div class="skills-category tools" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="category-title">🛠️ Tools & Platforms</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Vite</span>
+                        <span class="skill-tag">Recharts</span>
+                        <span class="skill-tag">Netlify</span>
+                        <span class="skill-tag">OpenWeather API</span>
+                        <span class="skill-tag">WAQI API</span>
+                        <span class="skill-tag">Gemini AI</span>
+                        <span class="skill-tag">TypeScript</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
 
 
     <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="section experience-section">
+    <section id="experience" class="section experience-section" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-part-1">My</span> <span class="title-part-2">Experience</span>
             </h2>
            
             <div class="experience-grid">
-                <div class="experience-card">
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="experience-icon-area">
                         <div class="experience-icon">
-                           
-                                <img src="IS-26.png">
-                                <rect x="15" y="20" width="70" height="60" rx="5" fill="#4F46E5" />
-                                <rect x="25" y="30" width="50" height="8" rx="2" fill="#E0E7FF" />
-                                <circle cx="35" cy="50" r="4" fill="#A5F3FC" />
-                                <circle cx="50" cy="50" r="4" fill="#86EFAC" />
-                                <circle cx="65" cy="50" r="4" fill="#FCD34D" />
-                                <path d="M25 65h50" stroke="#E0E7FF" stroke-width="2" />
-                                <path d="M25 73h35" stroke="#E0E7FF" stroke-width="2" />
-                            </svg>
+                            <img src="IS-26.png" alt="Infosys Logo" class="experience-logo-img">
                         </div>
                     </div>
                     <div class="experience-body">
@@ -302,7 +319,7 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
     </section>
 
     <!-- EDUCATION & CERTIFICATIONS SECTION -->
-    <section id="education" class="section education-section">
+    <section id="education" class="section education-section" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-part-1">Education</span> <span class="title-part-2">& Certifications</span>
@@ -310,7 +327,7 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
         
 
             <div class="education-content">
-                <div class="education-column">
+                <div class="education-column" data-aos="fade-right">
                     <div class="column-header">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -355,7 +372,7 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
                     </div>
                 </div>
 
-                <div class="certifications-column">
+                <div class="certifications-column" data-aos="fade-left">
                     <div class="column-header">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -381,11 +398,11 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
                             <div class="certificate-details">
                                 <h5>Completed certificates</h5>
                                 <ul>
-                                    <li>Intership 6.O(Batch 13)</li>
+                                    <li>Internship 6.O(Batch 13)</li>
                                     <li>Java Developer Certification</li>
                                     <li>Springboard Artificial Intelligence Foundation</li>
-                                    <li>Articial Intelligence Primer Certication</li>
-                                    <li>Principles of Generative AI Certication</li>
+                                    <li>Artificial Intelligence Primer Certification</li>
+                                    <li>Principles of Generative AI Certification</li>
                                     <li>TechA AWS Solution Architect Certification</li>
                                 </ul>
                             </div>
@@ -444,15 +461,15 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
     </section>
 
     <!-- PROJECTS SECTION -->
-    <section id="projects" class="section projects-section">
+    <section id="projects" class="section projects-section" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-part-1">Existing</span> <span class="title-part-2">Projects</span>
+                <span class="title-part-1">Featured</span> <span class="title-part-2">Projects</span>
             </h2>
         
-
             <div class="projects-grid">
-                <div class="project-card">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-icon-area">
                         <div class="project-icon">
                             <svg width="80" height="80" viewBox="0 0 100 100">
@@ -466,18 +483,19 @@ Currently, I am seeking opportunities to apply my skills, gain industry experien
                         </div>
                     </div>
                     <div class="project-body">
-                        <h3>Project Management System </h3>
-                         <span class="year">Dec-2025</span>
-                        <p> Engineered a full-stack profile management application with complete CRUD functionality, built on React.js with
-component-based architecture for scalable state management.
-                        </p>
+                        <h3>Project Management System</h3>
+                        <span class="year">Dec-2025</span>
+                        <div class="project-preview-container">
+                            <img src="pms.png" alt="Project Management System Preview Dashboard Mockup" class="project-preview-image">
+                        </div>
+                        <p>Engineered a Full-stack Profile Management application with complete CRUD functionality, built on React.js with component-based architecture for scalable state management.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href=" https://profileretriever.vercel.app/" class="project-link">
+                            <a href=" https://profileretriever.vercel.app/" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="red"
                                     stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -486,11 +504,10 @@ component-based architecture for scalable state management.
                                 </svg>
                                 Live Demo
                             </a>
-                            <a href="https://github.com/Buvan-Buddu/PMS" class="project-link">
+                            <a href="https://github.com/Buvan-Buddu/PMS" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-
                                 </svg>
                                 code
                             </a>
@@ -498,9 +515,9 @@ component-based architecture for scalable state management.
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-icon-area">
-                        
                         <div class="project-icon">
                             <svg width="80" height="80" viewBox="0 0 100 100">
                                 <rect x="18" y="18" width="64" height="64" rx="10" fill="#2563EB" />
@@ -513,10 +530,11 @@ component-based architecture for scalable state management.
                     </div>
                     <div class="project-body">
                         <h3>Transfer-IQ</h3> 
-                         <span class="year">Feb-Apr-2026</span>
+                        <span class="year">Feb-Apr-2026</span>
+                        <div class="project-preview-container">
+                            <img src="iq.png" alt="Transfer-IQ Predictive Data Transfer Platform Preview Mockup" class="project-preview-image">
+                        </div>
                         <p>Developed an AI-powered data transfer assistant platform using FastAPI, XGBoost, and PyTorch LSTM models to enable intelligent automation and real-time predictions.</p>
-
-                        
                         <div class="project-tags">
                             <span class="tag">React.js</span>
                             <span class="tag">Vite</span>
@@ -526,7 +544,7 @@ component-based architecture for scalable state management.
                             <span class="tag">Recharts</span>
                         </div>
                         <div class="project-links">
-                            <a href=" https://transfer-iq-infosys.onrender.com/" class="project-link">
+                            <a href="https://agent-69ca9e0dfc584a295653694e--transfer-iq.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="red"
                                     stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -535,20 +553,19 @@ component-based architecture for scalable state management.
                                 </svg>
                                 Live Demo
                             </a>
-                            
-                            <a href="https://github.com/Buvan-Buddu/Transfer-IQ" class="project-link">
+                            <a href="https://github.com/Buvan-Buddu/Transfer-IQ" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-
-                                </svg>
+                            </svg>
                                 code
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- Project 3 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-icon-area">
                         <div class="project-icon">
                             <svg width="80" height="80" viewBox="0 0 100 100">
@@ -560,8 +577,11 @@ component-based architecture for scalable state management.
                         </div>
                     </div>
                     <div class="project-body">
-                         <span class="year">2025-2026</span>
-                        <h3>HealthPluse-AI</h3>
+                        <h3>HealthPulse-AI</h3>
+                        <span class="year">2025-2026</span>
+                        <div class="project-preview-container">
+                            <img src="hp.png" alt="HealthPulse-AI Assistant Dashboard Preview Mockup" class="project-preview-image">
+                        </div>
                         <p>Built a full-stack health assistant web app with Gemini AI, weather and air-quality integrations, secure JWT authentication, and responsive dashboards for personalized insights.</p>
                         <div class="project-tags">
                             <span class="tag">React.js</span>
@@ -571,8 +591,8 @@ component-based architecture for scalable state management.
                             <span class="tag">Express.js</span>
                             <span class="tag">MongoDB</span>
                         </div>
-                       <div class="project-links">
-                            <a href=" https://healthpluse-ai.netlify.app/" class="project-link">
+                        <div class="project-links">
+                            <a href=" https://healthpluse-ai.netlify.app/" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="red"
                                     stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -581,11 +601,10 @@ component-based architecture for scalable state management.
                                 </svg>
                                 Live Demo
                             </a>
-                            <a href="https://github.com/akash14102006/Health-pulse-AI" class="project-link">
+                            <a href="https://github.com/akash14102006/Health-pulse-AI" class="project-link" target="_blank" rel="noopener noreferrer">
                                 <svg width="16" height="16" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-
                                 </svg>
                                 code
                             </a>
@@ -597,7 +616,7 @@ component-based architecture for scalable state management.
     </section>
 
     <!-- OTHERS SECTION -->
-    <section id="others" class="section others-section">
+    <section id="others" class="section others-section" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-part-1">My</span> <span class="title-part-2">Profiles</span>
@@ -663,7 +682,7 @@ component-based architecture for scalable state management.
                         </svg>
                     </div>
                     <h3>Unstop</h3>
-                    <p>Competitions & achievements</p>
+                    <p>Competitions & Achievements</p>
                 </a>
             </div>
         </div>
@@ -672,7 +691,7 @@ component-based architecture for scalable state management.
     
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section contact-section" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-part-1">Get In</span> <span class="title-part-2">Touch</span>
@@ -729,8 +748,11 @@ component-based architecture for scalable state management.
                         </svg>
                         Download Resume
                     </button>
+                  
                 </a>
+                
             </div>
+            
         </div>
     </section>
 
@@ -780,10 +802,12 @@ component-based architecture for scalable state management.
                 </div>
             </form>
         </div>
+        
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 

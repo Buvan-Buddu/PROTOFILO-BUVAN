@@ -84,7 +84,7 @@ Update social and profile links in the "Others" and "Contact" sections.
 
 Deployment
 
-The site is deployed on Vercel at protofilo-1.vercel.app. As a static site with no build step, it can also be deployed to any static hosting provider (GitHub Pages, Netlify, etc.) by uploading the repository contents directly.
+ As a static site with no build step, it can also be deployed to any static hosting provider (GitHub Pages, Netlify,Vercel etc.) by uploading the repository contents directly.
 
 License
 
